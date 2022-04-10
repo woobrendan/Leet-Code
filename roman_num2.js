@@ -10,24 +10,18 @@ const romanObj = {
 
 const romanToNum = (str) => {
   let result = 0;
-  const strArr = str.split('').reverse()
-  const numArr = strArr.map(letter => {
-    for (const key in romanObj) {
-      if (letter === key) {
-        return romanObj[key]
-      }
+  let highest = 0;
+  for (let i = str.length-1; i >= 0 ; i--) {
+    let num = romanObj[str.charAt(i)]
+    if (num < highest) { result -= num }
+    else {
+      result += num
+      highest = num
     }
-  })
-  for (let i = 0; i < numArr.length; i++) {
-    if(numArr[i] < numArr[i - 1]) {
-      result -= numArr[i] 
-    } else {
-      result += numArr[i]
-    }
-  } 
+  }
   return result
 }
 
 
-const val = "MDCXVI"
+const val = "LIV"
 console.log(romanToNum(val))
