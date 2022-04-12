@@ -1,13 +1,8 @@
 const strStr = (haystack, needle) => {
   const needleLength = needle.length;
-  // console.log('test:', haystack.slice(0, needleLength))
   for (let i = 0; i < haystack.length; i++) {
     let duo = haystack.slice(i, i + needleLength)
-    // console.log('i', i)
-    // console.log('duo', duo)
-    if (duo === needle) {
-      return i;
-    }
+    if (duo === needle) return i;
   }
   return -1;
 }
