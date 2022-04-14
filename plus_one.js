@@ -1,8 +1,4 @@
 const plusOne = (digits) => {
-  const str = digits.join('');
-  console.log('str', str)
-
-  console.log(BigInt(str))
   const nums = BigInt(digits.join('')) + BigInt(1);
   return String(nums).split('')
 }
